@@ -1,0 +1,106 @@
+:root {
+    --deep-space: #0a0d1c;
+    --star-light: #ffffff;
+    --nebula-pink: #ff6b6b;
+    --cosmic-purple: #6c5ce7;
+    --orbit-blue: #00cec9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--deep-space);
+    color: var(--star-light);
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: url('stars.png');
+    animation: twinkle 20s linear infinite;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    background: rgba(10, 13, 28, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--nebula-pink);
+}
+
+.nav-links a {
+    color: var(--star-light);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.floating-astronaut {
+    width: 200px;
+    height: 200px;
+    background: url('astronaut.png');
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+}
+
+.planet-section {
+    padding: 100px 0;
+}
+
+.planet-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 40px;
+    gap: 30px;
+}
+
+.planet {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.planet:hover {
+    transform: scale(1.2);
+}
+
+@keyframes twinkle {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
